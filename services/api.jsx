@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const TMBD_CONFIG = {
     BASE_URL : "https://api.themoviedb.org/3",
     API_KEY : process.env.EXPO_PUBLIC_MOVIE_API_KEY,
@@ -8,7 +10,7 @@ export const TMBD_CONFIG = {
 }
 
 
-export const fetchMovies = async ({ query }: { query: string}) => {
+export const fetchMovies = async ({ query }) => {
     const endpoint = query 
     ? 
     `${TMBD_CONFIG.BASE_URL}/search/movie?query=${encodeURIComponent(query)}` 
@@ -30,7 +32,7 @@ export const fetchMovies = async ({ query }: { query: string}) => {
 
 }
 
-export const fetchMovieDetails = async (movieId: string)=> {
+export const fetchMovieDetails = async (movieId)=> {
     try {
         const response = await fetch(`${TMBD_CONFIG.BASE_URL}/movie/${movieId}?api_key=${TMBD_CONFIG.API_KEY}`, {
             method:"GET",
@@ -46,3 +48,26 @@ export const fetchMovieDetails = async (movieId: string)=> {
         console.log(error)
     }
 }
+
+
+export const fetchRecommendations = async (movieId) => {
+  try {
+      const response = await fetch(
+          `${TMBD_CONFIG.BASE_URL}/movie/${movieId}/recommendations`,
+          {
+              method: "GET",
+              headers: TMBD_CONFIG.headers
+          }
+      );
+
+      if (!response.ok) {
+          throw new Error("Failed to fetch recommendations");
+      }
+
+      const data = await response.json();
+      return data.results;
+  } catch (error) {
+      console.error("Error fetching recommendations:", error);
+      return [];
+  }
+};

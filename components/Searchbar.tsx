@@ -7,10 +7,10 @@ interface props {
     onPress?: () => void,
     placeholder?: string,
     value?: string,
-    onChangeText: (text : string) => void
+    onChangeText?: (text : string) => void
 }
 
-const Searchbar = ({ onPress, placeholder, value, onChangeText}: props) => {
+const Searchbar = ({ onPress, placeholder, value, onChangeText} : props) => {
     return (
         <View className='flex-row items-center bg-[#03001493] rounded-full px-5 py-4'>
           <Image source={icons.search} className='size-5' resizeMode='contain' tintColor={"#ab8bff"} />

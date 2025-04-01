@@ -21,7 +21,7 @@ const SkeletonLoader = () => {
     ).start();
   }, []);
 
-  const SkeletonItem = ({ index }: any) => (
+  const SkeletonItem = ({ index }) => (
     <View className="w-[30%]">
       <Animated.View
         className="h-52 rounded-lg bg-gray-800 mb-2"

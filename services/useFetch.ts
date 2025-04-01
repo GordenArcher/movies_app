@@ -1,5 +1,4 @@
-import { View, Text } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
 
@@ -13,8 +12,6 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
         try {
             setLoading(true)
             setError(null)
-
-
             const result = await fetchFunction()
             setData(result)
           

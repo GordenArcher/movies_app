@@ -27,7 +27,7 @@ export default function MovieDetails() {
   const { data: movie, loading} = useFetch(() => fetchMovieDetails(id as string));
 
   if(loading) return (
-    <View className='flex-1 bg-[#030014] pt-[100px]'>
+    <View className='flex-1 pt-[100px]'>
       <MovieDetailsSkeleton />
     </View>
   )
