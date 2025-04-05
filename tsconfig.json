@@ -15,5 +15,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
-, "app/(tabs)/saved.jsx", "app/(tabs)/search.tsx", "components/MovieCard.jsx", "components/HomeLoader.jsx", "services/api.jsx", "app/(tabs)/index.jsx"  ]
+, "app/(tabs)/saved.jsx", "app/(tabs)/search.tsx", "components/MovieCard.jsx", "components/HomeLoader.jsx", "services/api.jsx", "app/(tabs)/index.jsx", "app/movies/[id].tsx"  ]
 }

@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 import { icons } from '@/constants/icons';
 import { Bookmark } from 'lucide-react-native';
 import {MovieContext} from '@/utils/MovieContext'
-import Toast from 'react-native-toast-message'; // Import Toast
+import Toast from 'react-native-toast-message';
 
 const MovieCard = ({ movie }) => {
   const { savedMovies, toggleSaveMovie } = useContext(MovieContext);

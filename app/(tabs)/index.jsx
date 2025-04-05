@@ -5,7 +5,7 @@ import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { router } from "expo-router";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Logo from '@/components/Logo'
 
 export default function Index() {
@@ -27,7 +27,11 @@ export default function Index() {
         {moviesLoading ? (
           <SkeletonLoader />
         ) : moviesError ? (
-          <Text className="text-white text-center mt-5">Error loading movies. Please try again.</Text>
+          <Text className="text-white text-center mt-5">Error loading movies. Please try again.
+          <TouchableOpacity>
+            Refresh
+          </TouchableOpacity>
+          </Text>
         ) : (
           <View className="flex-1 mt-5">
             <Searchbar 

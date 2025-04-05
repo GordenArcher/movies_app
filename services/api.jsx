@@ -26,7 +26,6 @@ export const fetchMovies = async ({ query }) => {
         throw new Error("Error fetching movies")
     }
 
-
     const data = await response.json()
     return data.results
 
@@ -35,6 +34,23 @@ export const fetchMovies = async ({ query }) => {
 export const fetchMovieDetails = async (movieId)=> {
     try {
         const response = await fetch(`${TMBD_CONFIG.BASE_URL}/movie/${movieId}?api_key=${TMBD_CONFIG.API_KEY}`, {
+            method:"GET",
+            headers: TMBD_CONFIG.headers
+        })
+
+        if(!response.ok) throw new Error("Failed to fetch movie")
+
+        const data = await response.json()
+
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const fetchMovieTriller = async (movieId)=> {
+    try {
+        const response = await fetch(`${TMBD_CONFIG.BASE_URL}/movie/${movieId}/videos?api_key=${TMBD_CONFIG.API_KEY}`, {
             method:"GET",
             headers: TMBD_CONFIG.headers
         })
